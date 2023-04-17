@@ -80,8 +80,20 @@
 //});
   </script>
 </head>
-<body style="background: #1e1f26;">
+<body style="background: #1e1f26;" class="toggle-menu">
   
+<!-- partial:index.partial.html -->
+<body id="loading">
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+  </div>
+
+
+
+
+
 <!--
 <div class="pyro">
 
@@ -350,5 +362,30 @@ clearInterval(intv);
 }
   
 </script>
+
+
+
+
+
+
+
+<script>
+function toggleMenu() {
+  document.querySelector('.menu-toggle').addEventListener('click', function() {
+    var el = document.querySelector('.button-menu');
+    var display = el.style.display;
+  	el.style.display = (display === 'none' || display === '' ? 'block' : 'none' );
+  });
+}
+document.addEventListener('DOMContentLoaded', function() {
+  toggleMenu();
+  setTimeout(function() {
+    'use strict';
+    var body = document.getElementById('loading');
+    body.classList.add('loaded');
+  }, 1000);
+});
+</script>
+  
 </body>
 </html>
